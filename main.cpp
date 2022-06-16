@@ -1,5 +1,5 @@
 #include <iostream>
-#include "animals.h"
+#include "Animal.h"
 #include "Horse.h"
 #include "People.h"
 #include "Snake.h"
@@ -8,11 +8,11 @@
 
 using namespace std;
 
-list <Animals*> animal;
+list <Animal*> animal;
 
-void addAnimal(Animals* Animal)
+void addAnimal(Animal* Animals)
 {
-    animal.push_front(Animal);
+    animal.push_front(Animals);
 }
 
 int main(int argc, char *argv[])
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
                 if (animal.size() == 0)
                     cout << "no animals "<< endl;
                 else
-                for (Animals *n : animal) 
+                for (Animal *n : animal) 
                     n->Output();  
             }
             break;
@@ -64,9 +64,9 @@ int main(int argc, char *argv[])
                     cout << "no animals "<< endl;
                 else{
                     int r = rand() % animal.size();
-                    list<Animals*>::iterator it = animal.begin();
+                    list<Animal*>::iterator it = animal.begin();
                     advance(it,r);
-                    Animals*x = *it;
+                    Animal*x = *it;
                     cout << "del : ";
                     x->Output();
                     delete x;

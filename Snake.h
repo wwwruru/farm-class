@@ -1,8 +1,8 @@
 #ifndef SNAKE_H
 #define SNAKE_H
-#include "animals.h"
+#include "Animal.h"
 
-class Snake:public Animals
+class Snake:public Animal
 {
 public:
     Snake();

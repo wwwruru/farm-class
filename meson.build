@@ -3,7 +3,7 @@ project('tutorial', 'cpp', version : '0.0.2')
 qt5_dep = dependency('qt5', modules: ['Core'], method : 'qmake')
 
 executable('Farm', 'main.cpp',
-           'animals.cpp',
+           'Animal.cpp',
            'Horse.cpp',
            'People.cpp',
            'Snake.cpp',

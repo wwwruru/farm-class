@@ -1,8 +1,8 @@
 #ifndef HORSE_H
 #define HORSE_H
-#include "animals.h"
+#include "Animal.h"
 
-class Horse:public Animals
+class Horse:public Animal
 {
 public:
     Horse();
