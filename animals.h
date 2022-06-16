@@ -5,11 +5,10 @@
 class Animals
 {
 public:
-    std::string animal;
-    int colfoot;
-public:
     Animals();
     void Output();
+    virtual std::string getAnimalName() = 0;
+    virtual size_t getLegsCount() = 0;
 };
 
 #endif // ANIMALS_H

@@ -2,6 +2,14 @@
 
 Snake::Snake()
 {
-    animal = "Snake";
-    colfoot = 0;
+}
+
+size_t Snake::getLegsCount() 
+{ 
+    return 0;
+}
+
+std::string Snake::getAnimalName()
+{
+    return "Snake";
 }

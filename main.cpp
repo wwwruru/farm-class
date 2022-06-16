@@ -8,10 +8,16 @@
 
 using namespace std;
 
+list <Animals*> animal;
+
+void addAnimal(Animals* zver)
+{
+    animal.push_front(zver);
+}
+
 int main(int argc, char *argv[])
 {
     int a;
-    list <Animals> animal;
 
     while (true)
     {
@@ -20,27 +26,27 @@ int main(int argc, char *argv[])
         cout << "2: Add snake "<< endl;
         cout << "3: Add people "<< endl;
         cout << "4: Output info "<< endl;
-        cout << "5: Delite random animal "<< endl;
+        cout << "5: Delete random animal "<< endl;
         cout << "?: Other to get out "<< endl;
         cout << "################################### "<< endl;
 
         cout << "Enter number : "<< endl;
-        scanf("%d", &a);
+        cin >> a;
 
         switch (a) {
         case 1:
             {
-                animal.push_front(Horse());
+                addAnimal(new Horse());
             }
             break;
         case 2:
             {
-                animal.push_front(Snake());
+                addAnimal(new Snake());
             }
             break;
         case 3:
             {
-                animal.push_front(People());
+                addAnimal(new People());
             }
             break;
         case 4:
@@ -48,9 +54,12 @@ int main(int argc, char *argv[])
                 if (animal.size() == 0)
                     cout << "no animals "<< endl;
                 else
-                    for (Animals n : animal) {
-                        n.Output();
+                for (Animals *n : animal) 
+                {
+                    Animals &v = *n;
+                    v.Output();
                 }
+                
             }
             break;
         case 5:
@@ -59,7 +68,7 @@ int main(int argc, char *argv[])
                     cout << "no animals "<< endl;
                 else{
                     int r = rand() % animal.size();
-                    list<Animals>::iterator it = animal.begin();
+                    list<Animals*>::iterator it = animal.begin();
                     advance(it,r);
                     animal.erase(it);
                 }
@@ -74,3 +83,4 @@ int main(int argc, char *argv[])
     }
     return 0;
 }
+

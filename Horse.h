@@ -6,6 +6,8 @@ class Horse:public Animals
 {
 public:
     Horse();
+    std::string getAnimalName() override;
+    size_t getLegsCount() override;
 };
 
 #endif // HORSE_H
