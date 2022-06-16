@@ -10,9 +10,9 @@ using namespace std;
 
 list <Animals*> animal;
 
-void addAnimal(Animals* zver)
+void addAnimal(Animals* Animal)
 {
-    animal.push_front(zver);
+    animal.push_front(Animal);
 }
 
 int main(int argc, char *argv[])
@@ -55,11 +55,7 @@ int main(int argc, char *argv[])
                     cout << "no animals "<< endl;
                 else
                 for (Animals *n : animal) 
-                {
-                    Animals &v = *n;
-                    v.Output();
-                }
-                
+                    n->Output();  
             }
             break;
         case 5:
@@ -70,6 +66,10 @@ int main(int argc, char *argv[])
                     int r = rand() % animal.size();
                     list<Animals*>::iterator it = animal.begin();
                     advance(it,r);
+                    Animals*x = *it;
+                    cout << "del : ";
+                    x->Output();
+                    delete x;
                     animal.erase(it);
                 }
             }
