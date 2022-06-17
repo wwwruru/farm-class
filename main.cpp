@@ -5,14 +5,15 @@
 #include "Snake.h"
 #include <list>
 #include <random>
+#include <memory>
 
 using namespace std;
 
-list <Animal*> animal;
+list <shared_ptr<Animal>> animal;
 
 void addAnimal(Animal* Animals)
 {
-    animal.push_front(Animals);
+    animal.push_front(shared_ptr<Animal>(Animals));
 }
 
 int main(int argc, char *argv[])
@@ -54,7 +55,7 @@ int main(int argc, char *argv[])
                 if (animal.size() == 0)
                     cout << "no animals "<< endl;
                 else
-                for (Animal *n : animal) 
+                for (shared_ptr<Animal> n : animal) 
                     n->Output();  
             }
             break;
@@ -64,12 +65,9 @@ int main(int argc, char *argv[])
                     cout << "no animals "<< endl;
                 else{
                     int r = rand() % animal.size();
-                    list<Animal*>::iterator it = animal.begin();
+                    list<shared_ptr<Animal>>::iterator it = animal.begin();
                     advance(it,r);
-                    Animal*x = *it;
-                    cout << "del : ";
-                    x->Output();
-                    delete x;
+                    Animal *x = (*it).get();
                     animal.erase(it);
                 }
             }
